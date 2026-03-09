@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maja Ohlmann – Tutoring with Heart ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yellow:  #FFD93D;
+            --green:   #5EC97C;
+            --purple:  #B97FFF;
+            --pink:    #FF6FB3;
+            --cream:   #FFFEF0;
+            --dark:    #1E1E2E;
+            --yellow-soft: #FFFBE8;
+            --green-soft:  #EDFBF2;
+            --purple-soft: #F5EEFF;
+            --pink-soft:   #FFF0F7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* ──────────────── NAV ──────────────── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 0.9rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,254,240,0.88);
+            backdrop-filter: blur(14px);
+            border-bottom: 2.5px solid var(--yellow);
+        }
+        .nav-logo {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.55rem;
+            color: var(--purple);
+            letter-spacing: 0.02em;
+        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            font-weight: 700; font-size: 0.95rem;
+            text-decoration: none; color: #444;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--pink); }
+        .nav-cta {
+            background: var(--purple);
+            color: white !important;
+            padding: 0.45rem 1.3rem;
+            border-radius: 50px;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+            box-shadow: 0 3px 12px rgba(185,127,255,0.35);
+        }
+        .nav-cta:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(185,127,255,0.5) !important;
+            color: white !important;
+        }
+
+        /* ──────────────── HERO ──────────────── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7rem 2.5rem 5rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--yellow-soft) 0%, var(--pink-soft) 50%, var(--purple-soft) 100%);
+        }
+        .hero-content {
+            max-width: 1120px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .hero-text h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.4rem;
+        }
+        .col-y { color: var(--yellow); -webkit-text-stroke: 1px #e6a800; }
+        .col-g { color: var(--green); }
+        .col-p { color: var(--purple); }
+        .col-pk { color: var(--pink); }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #555;
+            line-height: 1.75;
+            margin-bottom: 2.2rem;
+        }
+        .hero-pills {
+            display: flex; gap: 0.7rem; flex-wrap: wrap;
+            margin-bottom: 2.6rem;
+        }
+        .pill {
+            padding: 0.5rem 1.3rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.95rem;
+        }
+        .pill-en  { background: var(--yellow); color: #7A5800; }
+        .pill-sv  { background: var(--green);  color: #145A28; }
+        .pill-sg  { background: var(--pink);   color: #85114C; }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 2.6rem;
+            background: var(--purple);
+            color: white;
+            border-radius: 50px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 5px 22px rgba(185,127,255,0.45);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 35px rgba(185,127,255,0.55);
+        }
+
+        /* morphing photo */
+        .hero-photo-wrap { display: flex; justify-content: center; position: relative; }
+        .hero-photo-blob {
+            width: 380px; height: 460px;
+            border-radius: 62% 38% 52% 48% / 48% 54% 46% 52%;
+            overflow: hidden;
+            border: 5px solid var(--yellow);
+            box-shadow: 14px 14px 0 var(--pink), 26px 26px 0 rgba(185,127,255,0.25);
+            animation: morphBlob 9s ease-in-out infinite;
+        }
+        @keyframes morphBlob {
+            0%,100% { border-radius: 62% 38% 52% 48% / 48% 54% 46% 52%; }
+            33%  { border-radius: 44% 56% 38% 62% / 60% 44% 56% 40%; }
+            66%  { border-radius: 54% 46% 62% 38% / 42% 62% 38% 58%; }
+        }
+        .hero-photo-blob img {
+            width: 100%; height: 100%;
+            object-fit: cover; object-position: top center;
+            display: block;
+        }
+
+        /* floating decorations */
+        .fd {
+            position: absolute;
+            font-size: 2.2rem;
+            pointer-events: none;
+            animation: floatBob 5s ease-in-out infinite;
+            user-select: none;
+        }
+        @keyframes floatBob {
+            0%,100% { transform: translateY(0) rotate(0deg); }
+            50%      { transform: translateY(-18px) rotate(12deg); }
+        }
+        .fd1 { top: 12%; left: 4%;   animation-delay: 0s; }
+        .fd2 { top: 18%; right: 6%;  animation-delay: 0.9s; }
+        .fd3 { bottom: 22%; left: 6%;  animation-delay: 1.8s; }
+        .fd4 { bottom: 18%; right: 4%; animation-delay: 0.5s; }
+        .fd5 { top: 52%; left: 2%;   animation-delay: 1.3s; }
+        .fd6 { top: 42%; right: 2%;  animation-delay: 2.2s; }
+        .fd7 { top: 75%; left: 45%;  animation-delay: 0.7s; font-size:1.4rem; }
+
+        /* sparkle ring around photo */
+        .sparkle-ring {
+            position: absolute;
+            top: -18px; right: -18px;
+            width: 90px; height: 90px;
+            background: var(--yellow);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 18px rgba(255,217,61,0.5);
+            animation: spinRing 6s linear infinite;
+        }
+        @keyframes spinRing {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+        .sparkle-ring span { animation: spinRing 6s linear infinite reverse; display:block; }
+
+        /* ──────────────── SECTION COMMON ──────────────── */
+        section { padding: 5.5rem 2.5rem; }
+        .container { max-width: 1120px; margin: 0 auto; }
+
+        .sec-label {
+            font-family: 'Fredoka One', cursive;
+            font-size: 0.9rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+        }
+        .sec-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ──────────────── ABOUT ──────────────── */
+        .about { background: white; }
+        .about-inner {
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .about-text p {
+            font-size: 1.08rem;
+            line-height: 1.82;
+            color: #4a4a5a;
+            margin-bottom: 1.15rem;
+            text-align: left;
+        }
+        .about-pull {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            color: var(--purple);
+            line-height: 1.4;
+            margin: 2rem 0;
+            padding: 1.5rem 2rem;
+            background: var(--purple-soft);
+            border-radius: 20px;
+            border-left: 5px solid var(--purple);
+            text-align: left;
+        }
+        .trait-cloud { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.6rem; justify-content: center; }
+        .trait {
+            padding: 0.4rem 1.05rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.88rem;
+        }
+
+        /* ──────────────── SUBJECTS ──────────────── */
+        .subjects {
+            background: linear-gradient(170deg, var(--purple-soft) 0%, var(--yellow-soft) 100%);
+        }
+        .subjects-head { text-align: center; margin-bottom: 3.5rem; }
+        .subjects-head p { color: #666; font-size: 1.05rem; line-height: 1.7; max-width: 580px; margin: 0 auto; }
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .sub-card {
+            background: white;
+            border-radius: 28px;
+            padding: 2.6rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .sub-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            border-radius: 28px 28px 0 0;
+        }
+        .sub-card.en::after { background: var(--yellow); }
+        .sub-card.sv::after { background: var(--green); }
+        .sub-card.sg::after { background: linear-gradient(90deg, var(--pink), var(--purple)); }
+        .sub-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+        }
+        .sub-icon { font-size: 3.5rem; margin-bottom: 1rem; display: block; }
+        .sub-card h3 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+        .sub-card.en h3 { color: #7A5800; }
+        .sub-card.sv h3 { color: #145A28; }
+        .sub-card.sg h3 { color: #7C1D66; }
+        .sub-card p { color: #555; line-height: 1.72; font-size: 1rem; }
+
+        /* ──────────────── APPROACH ──────────────── */
+        .approach {
+            background: var(--dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .approach-bg-deco {
+            position: absolute;
+            font-size: 22rem;
+            opacity: 0.025;
+            right: -4rem; top: -4rem;
+            pointer-events: none;
+            user-select: none;
+        }
+        .approach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .approach-text .sec-title { color: var(--yellow); }
+        .approach-text p {
+            font-size: 1.08rem;
+            line-height: 1.82;
+            color: #c0c0d0;
+            margin-bottom: 1.1rem;
+        }
+        .pillars {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.4rem;
+        }
+        .pillar {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .pillar:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.18);
+        }
+        .pillar-icon { font-size: 2rem; margin-bottom: 0.65rem; display: block; }
+        .pillar h4 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.15rem;
+            margin-bottom: 0.45rem;
+        }
+        .pillar p { font-size: 0.9rem; color: #aaa; line-height: 1.62; }
+
+        /* ──────────────── BACKGROUND ──────────────── */
+        .background-sec { background: var(--green-soft); }
+        .bg-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .bg-card {
+            background: white;
+            border-radius: 22px;
+            padding: 1.75rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            box-shadow: 0 2px 14px rgba(0,0,0,0.05);
+            transition: transform 0.25s;
+        }
+        .bg-card:hover { transform: translateY(-4px); }
+        .bg-card-icon { font-size: 2.2rem; flex-shrink: 0; line-height: 1; }
+        .bg-card h4 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 0.35rem;
+        }
+        .bg-card p { font-size: 0.95rem; color: #555; line-height: 1.65; }
+
+        /* ──────────────── PRICING ──────────────── */
+        .pricing {
+            background: linear-gradient(135deg, var(--pink-soft) 0%, var(--purple-soft) 100%);
+            text-align: center;
+        }
+        .pricing-card {
+            max-width: 500px;
+            margin: 3.5rem auto 0;
+            background: white;
+            border-radius: 32px;
+            padding: 3.2rem;
+            box-shadow: 0 20px 60px rgba(185,127,255,0.18);
+            border: 3px solid var(--purple);
+            position: relative;
+        }
+        .pricing-badge {
+            position: absolute;
+            top: -18px; left: 50%;
+            transform: translateX(-50%);
+            background: var(--purple);
+            color: white;
+            font-family: 'Fredoka One', cursive;
+            font-size: 0.9rem;
+            padding: 0.4rem 1.6rem;
+            border-radius: 50px;
+            white-space: nowrap;
+        }
+        .price-display {
+            font-family: 'Fredoka One', cursive;
+            font-size: 4.5rem;
+            color: var(--purple);
+            line-height: 1;
+            margin: 1.2rem 0 0.3rem;
+        }
+        .price-sub {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+        .price-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2.2rem;
+        }
+        .price-list li {
+            padding: 0.55rem 0;
+            color: #444;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .price-list li:last-child { border-bottom: none; }
+        .check {
+            width: 22px; height: 22px;
+            background: var(--green);
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        /* ──────────────── CONTACT ──────────────── */
+        .contact-sec { background: white; text-align: center; }
+        .contact-sec .sec-title { margin-bottom: 0.75rem; }
+        .contact-sub {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+        }
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.05rem 2.4rem;
+            border-radius: 50px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 1.05rem;
+            text-decoration: none;
+            background: var(--yellow);
+            color: #7A5800;
+            box-shadow: 0 5px 22px rgba(255,217,61,0.4);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .contact-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 35px rgba(255,217,61,0.55);
+        }
+        .contact-note {
+            color: #bbb;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+        }
+
+        /* ──────────────── FOOTER ──────────────── */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2.8rem 2rem;
+        }
+        footer p { font-size: 0.88rem; color: #666; }
+        footer p + p { margin-top: 0.4rem; }
+        footer strong { color: var(--yellow); }
+
+        /* ──────────────── WAVY DIVIDERS ──────────────── */
+        .wave-wrap { line-height: 0; overflow: hidden; }
+        .wave-wrap svg { display: block; width: 100%; }
+
+        /* ──────────────── SCROLL ANIMATIONS ──────────────── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+        /* ──────────────── RESPONSIVE ──────────────── */
+        @media (max-width: 920px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+            .hero-text h1 { font-size: 3rem; }
+            .hero-pills { justify-content: center; }
+            .hero-photo-blob { width: 290px; height: 360px; margin: 0 auto; }
+            .about-pull { font-size: 1.2rem; }
+            .subjects-grid { grid-template-columns: 1fr; }
+            .approach-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .pillars { grid-template-columns: 1fr; }
+            .bg-grid { grid-template-columns: 1fr; }
+            nav .nav-links { display: none; }
+            section { padding: 4rem 1.5rem; }
+            .sec-title { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav>
+    <div class="nav-logo">✨ Maja</div>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#subjects">Subjects</a></li>
+        <li><a href="#approach">My Approach</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact" class="nav-cta">Book a lesson</a></li>
+    </ul>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero" id="home">
+    <span class="fd fd1">🌸</span>
+    <span class="fd fd2">⭐</span>
+    <span class="fd fd3">🍀</span>
+    <span class="fd fd4">🎵</span>
+    <span class="fd fd5">🌿</span>
+    <span class="fd fd6">💛</span>
+    <span class="fd fd7">✨</span>
+
+    <div class="hero-content">
+        <div class="hero-text fade-up">
+            <h1>
+                Learn with <span class="col-y">Joy</span>,<br>
+                grow with <span class="col-pk">Love</span>,<br>
+                <span class="col-g">discover</span> <span class="col-p">yourself</span> ✨
+            </h1>
+            <p class="hero-sub">
+                Online lessons in English, Swedish &amp; Singing —<br>
+                taught with warmth, playfulness, and a whole lot<br>
+                of genuine heart 🌱
+            </p>
+            <div class="hero-pills">
+                <span class="pill pill-en">🇬🇧 English</span>
+                <span class="pill pill-sv">🇸🇪 Swedish</span>
+                <span class="pill pill-sg">🎤 Singing</span>
+            </div>
+            <a href="#contact" class="btn-primary">Book a lesson ✨</a>
+        </div>
+
+        <div class="hero-photo-wrap">
+            <div class="hero-photo-blob">
+                <!-- Place your photo here: rename it to maja-hero.jpg -->
+                <img src="maja-hero.jpg" alt="Maja Ohlmann" />
+            </div>
+            <div class="sparkle-ring"><span>🌟</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- wave -->
+<div class="wave-wrap" style="background:linear-gradient(145deg,var(--yellow-soft),var(--purple-soft))">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+        <path d="M0,0 C360,60 1080,0 1440,60 L1440,0 L0,0 Z" fill="white"/>
+    </svg>
+</div>
+
+<!-- ═══════════════════ ABOUT ═══════════════════ -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-inner fade-up">
+            <p class="sec-label" style="color:var(--pink);">✦ About Maja</p>
+            <h2 class="sec-title">A teacher who makes you feel <span class="col-p">seen</span> 💜</h2>
+            <div class="about-text">
+                <p>
+                    Hi, I'm Maja! 👋 I'm a Swedish actress and passionate teacher, and I believe learning is one of the most beautiful adventures life has to offer — when you do it with the right person.
+                </p>
+                <p>
+                    I grew up completely surrounded by the world of opera — both of my parents are professional opera singers. Music, theatre, and the magic of performance have been woven into my life since the very beginning, and that love pours straight into everything I teach.
+                </p>
+                <p>
+                    I struggled in school myself as a child, so I know exactly what it feels like when learning is hard. That's why everything I do is built on patience, curiosity, zero judgment, and genuine, overflowing joy. I don't just teach — I discover what makes <em>you</em> tick, and we build from there, together. ✨
+                </p>
+            </div>
+            <div class="about-pull">
+                "Every single student deserves to feel like the most important person in the room. Because when you feel truly heard and seen, <em>that's</em> when magic happens."
+            </div>
+            <div class="trait-cloud">
+                <span class="trait" style="background:var(--yellow-soft);color:#7A5800;">🌞 Warm &amp; Nurturing</span>
+                <span class="trait" style="background:var(--green-soft);color:#145A28;">🌿 Infinitely Patient</span>
+                <span class="trait" style="background:var(--pink-soft);color:#85114C;">💖 Playful &amp; Silly</span>
+                <span class="trait" style="background:var(--purple-soft);color:#6B21A8;">✨ Deeply Creative</span>
+                <span class="trait" style="background:var(--yellow-soft);color:#7A5800;">🎭 Actress &amp; Performer</span>
+                <span class="trait" style="background:var(--green-soft);color:#145A28;">🌱 Always Encouraging</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- wave -->
+<div class="wave-wrap" style="background:white;">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+        <path d="M0,60 C480,0 960,60 1440,0 L1440,60 L0,60 Z" fill="#f5eeff"/>
+    </svg>
+</div>
+
+<!-- ═══════════════════ SUBJECTS ═══════════════════ -->
+<section class="subjects" id="subjects">
+    <div class="container">
+        <div class="subjects-head fade-up">
+            <p class="sec-label" style="color:var(--purple);">✦ What I Teach</p>
+            <h2 class="sec-title">Three ways to <span class="col-pk">bloom</span> 🌸</h2>
+            <p>Whether you want to find your voice in a new language or sing with confidence — every lesson is a joyful adventure designed entirely around <em>you</em>.</p>
+        </div>
+        <div class="subjects-grid">
+            <div class="sub-card en fade-up delay-1">
+                <span class="sub-icon">🇬🇧</span>
+                <h3>English</h3>
+                <p>
+                    From everyday conversation to grammar and pronunciation — I'll help you find your voice in English with zero pressure and loads of fun. I hold a C2 certificate from London (with a perfect score!) and teach English the way it's actually spoken, lived, and loved.
+                </p>
+            </div>
+            <div class="sub-card sv fade-up delay-2">
+                <span class="sub-icon">🇸🇪</span>
+                <h3>Swedish</h3>
+                <p>
+                    Dive into the language of forests, fika, and fairy tales! As a native Swede, I'll teach you Swedish with all its warmth, humour, and personality — the way real Swedes actually talk, not just the textbook version.
+                </p>
+            </div>
+            <div class="sub-card sg fade-up delay-3">
+                <span class="sub-icon">🎤</span>
+                <h3>Singing</h3>
+                <p>
+                    Growing up with two professional opera singers as parents, Maja has been surrounded by the magic of voice and music her whole life. She teaches singing with infectious joy and a deep love for helping others discover their own voice — no experience needed, all levels warmly welcome.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- wave -->
+<div class="wave-wrap" style="background:linear-gradient(170deg,var(--purple-soft),var(--yellow-soft));">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+        <path d="M0,0 C360,60 1080,0 1440,60 L1440,0 L0,0 Z" fill="#1e1e2e"/>
+    </svg>
+</div>
+
+<!-- ═══════════════════ APPROACH ═══════════════════ -->
+<section class="approach" id="approach">
+    <div class="approach-bg-deco">✨</div>
+    <div class="container">
+        <div class="approach-grid">
+            <div class="approach-text fade-up">
+                <p class="sec-label" style="color:var(--pink);">✦ How I Teach</p>
+                <h2 class="sec-title">Learning should feel like <span class="col-g">play</span> 🎮</h2>
+                <p>
+                    The secret to learning isn't discipline or pressure — it's <strong style="color:var(--yellow)">joy</strong>. My teaching begins by genuinely getting to know you: what excites you, what you dream about, what makes you laugh until your sides hurt.
+                </p>
+                <p>
+                    Every lesson is crafted around <em>your</em> world. Your passions, your stories, your pace. Because when you love the journey, progress follows naturally — and it sticks.
+                </p>
+                <p>
+                    I've spent my whole life learning how to make people feel at ease. Kids, adults, nervous beginners — everyone gets the same thing from me: unconditional warmth and the deep, unshakeable belief that they can do this. 💛
+                </p>
+            </div>
+
+            <div class="pillars fade-up delay-1">
+                <div class="pillar">
+                    <span class="pillar-icon">🔍</span>
+                    <h4 style="color:var(--yellow)">Discovery First</h4>
+                    <p>We start by uncovering what motivates you — your passions, interests, and unique learning style.</p>
+                </div>
+                <div class="pillar">
+                    <span class="pillar-icon">🎮</span>
+                    <h4 style="color:var(--green)">Playful by Design</h4>
+                    <p>Lessons are creative, light-hearted, and anything but boring. We explore, we laugh, we grow.</p>
+                </div>
+                <div class="pillar">
+                    <span class="pillar-icon">💛</span>
+                    <h4 style="color:var(--yellow)">Zero Pressure Zone</h4>
+                    <p>No judgment, no stress. Just a safe, joyful space where you're free to try, make mistakes, and flourish.</p>
+                </div>
+                <div class="pillar">
+                    <span class="pillar-icon">🌱</span>
+                    <h4 style="color:var(--green)">Real, Lasting Growth</h4>
+                    <p>Joy and genuine connection are the fastest path to progress that actually stays with you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- wave -->
+<div class="wave-wrap" style="background:#1e1e2e;">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+        <path d="M0,60 C480,0 960,60 1440,0 L1440,60 L0,60 Z" fill="#edfbf2"/>
+    </svg>
+</div>
+
+<!-- ═══════════════════ BACKGROUND ═══════════════════ -->
+<section class="background-sec" id="background">
+    <div class="container">
+        <div style="text-align:center;" class="fade-up">
+            <p class="sec-label" style="color:var(--green);">✦ Maja's Story</p>
+            <h2 class="sec-title">Raised in the world of <span class="col-p">opera &amp; theatre</span> 🎭</h2>
+        </div>
+        <div class="bg-grid">
+            <div class="bg-card fade-up delay-1">
+                <div class="bg-card-icon">🏛️</div>
+                <div>
+                    <h4>Drottningholms Royal Opera</h4>
+                    <p>Acted in the acclaimed production of <em>Orpheus and Eurydice</em> at Drottningholm, working with internationally celebrated directors Elena Barbalich and Matteo Carvone.</p>
+                </div>
+            </div>
+            <div class="bg-card fade-up delay-2">
+                <div class="bg-card-icon">🇬🇧</div>
+                <div>
+                    <h4>C2 English · London</h4>
+                    <p>Completed a full-time intensive English course at EF International Language School in London, graduating with a perfect 15/15. Grammar, phonetics, written and spoken communication mastered.</p>
+                </div>
+            </div>
+            <div class="bg-card fade-up delay-1">
+                <div class="bg-card-icon">🎼</div>
+                <div>
+                    <h4>Swedish Opera House</h4>
+                    <p>Worked backstage as a costume technician, including high-pressure quick changes for performers and gently supporting child performers before they stepped on stage.</p>
+                </div>
+            </div>
+            <div class="bg-card fade-up delay-2">
+                <div class="bg-card-icon">📚</div>
+                <div>
+                    <h4>Tutoring Since 2018</h4>
+                    <p>Over six years of private tutoring experience with children and adults in English, Swedish, singing, and acting. Every lesson a little adventure of its own.</p>
+                </div>
+            </div>
+            <div class="bg-card fade-up delay-1">
+                <div class="bg-card-icon">🌍</div>
+                <div>
+                    <h4>Multilingual &amp; Musical</h4>
+                    <p>Fluent in English, Swedish, and German, with Italian and French too. Actress, dancer, and pianist — and someone who has breathed music and opera her entire life.</p>
+                </div>
+            </div>
+            <div class="bg-card fade-up delay-2">
+                <div class="bg-card-icon">🎶</div>
+                <div>
+                    <h4>Born into Opera</h4>
+                    <p>Both of Maja's parents are professional opera singers. She grew up immersed in the world of music, voice, and performance — and that lifelong love of singing is something she brings to every lesson.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- wave -->
+<div class="wave-wrap" style="background:var(--green-soft);">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+        <path d="M0,0 C360,60 1080,0 1440,60 L1440,0 L0,0 Z" fill="#fff0f7"/>
+    </svg>
+</div>
+
+<!-- ═══════════════════ PRICING ═══════════════════ -->
+<section class="pricing" id="pricing">
+    <div class="container fade-up">
+        <p class="sec-label" style="color:var(--purple);">✦ Pricing</p>
+        <h2 class="sec-title">Simple, joyful, <span class="col-pk">affordable</span> 💛</h2>
+        <div class="pricing-card">
+            <div class="pricing-badge">✨ Online — anywhere in the world</div>
+            <div class="price-display">€20 / £20</div>
+            <p class="price-sub">per 1-hour lesson</p>
+            <ul class="price-list">
+                <li><span class="check">✓</span> Personalised lesson plan crafted just for you</li>
+                <li><span class="check">✓</span> English, Swedish, or Singing — your choice</li>
+                <li><span class="check">✓</span> Relaxed, playful, zero-pressure environment</li>
+                <li><span class="check">✓</span> 100% online — learn from wherever you are</li>
+                <li><span class="check">✓</span> All levels welcome, including complete beginners</li>
+            </ul>
+            <a href="#contact" class="btn-primary">Book your first lesson ✨</a>
+        </div>
+    </div>
+</section>
+
+<!-- wave -->
+<div class="wave-wrap" style="background:linear-gradient(135deg,var(--pink-soft),var(--purple-soft));">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+        <path d="M0,60 C480,0 960,60 1440,0 L1440,60 L0,60 Z" fill="white"/>
+    </svg>
+</div>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section class="contact-sec" id="contact">
+    <div class="container fade-up">
+        <p class="sec-label" style="color:var(--pink);">✦ Get in Touch</p>
+        <h2 class="sec-title">Ready to start your <span class="col-y">adventure</span>? 🌟</h2>
+        <p class="contact-sub">
+            Send Maja an email and she'll get back to you with a big warm smile and everything you need to get started on your learning journey. 🌸
+        </p>
+        <a href="mailto:ohlmannmaja@gmail.com" class="contact-btn">
+            📧 ohlmannmaja@gmail.com
+        </a>
+        <p class="contact-note">All lessons take place online via Zoom or Google Meet 🌍</p>
+    </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+    <p>Made with 💛 for <strong>Maja Ohlmann</strong></p>
+    <p>Online Tutoring · English · Swedish · Singing · <a href="mailto:ohlmannmaja@gmail.com" style="color:#888;">ohlmannmaja@gmail.com</a></p>
+</footer>
+
+<script>
+    // Scroll fade-in
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) e.target.classList.add('visible');
+        });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

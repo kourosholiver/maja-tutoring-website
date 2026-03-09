@@ -297,15 +297,14 @@
 
         /* ──────────────── APPROACH ──────────────── */
         .approach {
-            background: var(--dark);
-            color: white;
+            background: linear-gradient(135deg, var(--yellow-soft) 0%, var(--pink-soft) 100%);
             position: relative;
             overflow: hidden;
         }
         .approach-bg-deco {
             position: absolute;
             font-size: 22rem;
-            opacity: 0.025;
+            opacity: 0.06;
             right: -4rem; top: -4rem;
             pointer-events: none;
             user-select: none;
@@ -316,11 +315,11 @@
             gap: 5rem;
             align-items: center;
         }
-        .approach-text .sec-title { color: var(--yellow); }
+        .approach-text .sec-title { color: var(--purple); }
         .approach-text p {
             font-size: 1.08rem;
             line-height: 1.82;
-            color: #c0c0d0;
+            color: #4a4a5a;
             margin-bottom: 1.1rem;
         }
         .pillars {
@@ -329,15 +328,15 @@
             gap: 1.4rem;
         }
         .pillar {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.65);
             border-radius: 20px;
             padding: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(0,0,0,0.07);
             transition: background 0.3s, border-color 0.3s;
         }
         .pillar:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.18);
+            background: white;
+            border-color: rgba(0,0,0,0.12);
         }
         .pillar-icon { font-size: 2rem; margin-bottom: 0.65rem; display: block; }
         .pillar h4 {
@@ -345,7 +344,7 @@
             font-size: 1.15rem;
             margin-bottom: 0.45rem;
         }
-        .pillar p { font-size: 0.9rem; color: #aaa; line-height: 1.62; }
+        .pillar p { font-size: 0.9rem; color: #666; line-height: 1.62; }
 
         /* ──────────────── BACKGROUND ──────────────── */
         .background-sec { background: var(--green-soft); }
@@ -656,7 +655,7 @@
 <!-- wave -->
 <div class="wave-wrap" style="background:linear-gradient(170deg,var(--purple-soft),var(--yellow-soft));">
     <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
-        <path d="M0,0 C360,60 1080,0 1440,60 L1440,0 L0,0 Z" fill="#1e1e2e"/>
+        <path d="M0,0 C360,60 1080,0 1440,60 L1440,0 L0,0 Z" fill="#FFFBE8"/>
     </svg>
 </div>
 
@@ -706,7 +705,7 @@
 </section>
 
 <!-- wave -->
-<div class="wave-wrap" style="background:#1e1e2e;">
+<div class="wave-wrap" style="background:#FFF0F7;">
     <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
         <path d="M0,60 C480,0 960,60 1440,0 L1440,60 L0,60 Z" fill="#edfbf2"/>
     </svg>
@@ -780,7 +779,7 @@
         <h2 class="sec-title">Simple, joyful, <span class="col-pk">affordable</span> 💛</h2>
         <div class="pricing-card">
             <div class="pricing-badge">✨ Online — anywhere in the world</div>
-            <div class="price-display">€20 / £20</div>
+            <div class="price-display">€20</div>
             <p class="price-sub">per 1-hour lesson</p>
             <ul class="price-list">
                 <li><span class="check">✓</span> Personalised lesson plan crafted just for you</li>
